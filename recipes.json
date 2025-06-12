@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Tepsi Kebab",
+    "url": "https://www.youtube.com/watch?v=obYMjVWDlrc",
+    "meat_type": "beef",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "berk"
+    ],
+    "carbs_recom": []
+  },
+  {
+    "name": "Salmon and Broccoli pasta",
+    "url": "https://www.bbc.co.uk/food/recipes/salmon_broccoli_pasta_39926",
+    "meat_type": "fish",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "berk",
+      "stella"
+    ],
+    "carbs_recom": []
+  },
+  {
+    "name": "Chicken Paprikash",
+    "url": "https://www.daringgourmet.com/chicken-paprikash-paprikas-csirke/",
+    "meat_type": "poultry",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "stella"
+    ],
+    "carbs_recom": [
+      "Pasta",
+      "Potatoes",
+      "Mashed potatoes",
+      "Nockerln"
+    ]
+  },
+  {
+    "name": "Creamy Butter Beans",
+    "url": "https://cookingforpeanuts.com/creamy-butter-beans/",
+    "meat_type": "none",
+    "vegan": true,
+    "vegetarian": true,
+    "tags": [
+      "healthy",
+      "stella"
+    ],
+    "carbs_recom": [
+      "Pasta",
+      "Potatoes",
+      "Mashed potatoes",
+      "Bread",
+      "Udon"
+    ]
+  },
+  {
+    "name": "Okra stew",
+    "url": "https://www.youtube.com/watch?v=C0aeWKQyEjg",
+    "meat_type": "other",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "expensive",
+      "healthy",
+      "berk",
+      "stella"
+    ],
+    "carbs_recom": []
+  },
+  {
+    "name": "Thit kho tau (Vietnamese Caramelized Pork Belly and Eggs in Coconut)",
+    "url": "https://www.youtube.com/watch?v=esXR-jUVnwE",
+    "meat_type": "pork",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "stella"
+    ],
+    "carbs_recom": [
+      "Rice"
+    ]
+  },
+  {
+    "name": "Vegan Chicken Burgers",
+    "url": "",
+    "meat_type": "none",
+    "vegan": true,
+    "vegetarian": true,
+    "tags": [
+      "healthy",
+      "stella"
+    ],
+    "carbs_recom": []
+  },
+  {
+    "name": "Backfisch (Pan-fried battered fish)",
+    "url": "",
+    "meat_type": "fish",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [],
+    "carbs_recom": []
+  },
+  {
+    "name": "Chicken Chasseur",
+    "url": "https://www.youtube.com/watch?v=yMVGR3ibVvs",
+    "meat_type": "poultry",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "healthy",
+      "stella"
+    ],
+    "carbs_recom": []
+  },
+  {
+    "name": "Szeged Goulash (Sauerkraut Goulash)",
+    "url": "https://www.kitchenstories.com/de/rezepte/szekely-gulyas-szegediner-gulasch",
+    "meat_type": "pork",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "stella"
+    ],
+    "carbs_recom": []
+  }
+]

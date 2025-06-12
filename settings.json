@@ -1,0 +1,17 @@
+{
+  "days_to_plan": 5,
+  "min_healthy_per_week": 2,
+  "min_vegetarian_per_week": 1,
+  "min_vegan_per_week": 0,
+  "min_berk_favorite_per_week": 0,
+  "min_stella_favorite_per_week": 0,
+  "max_expensive_per_week": 1,
+  "min_carb_variety_per_week": 2,
+  "meat_preferences": [
+    "poultry",
+    "beef",
+    "pork",
+    "fish",
+    "other"
+  ]
+}
