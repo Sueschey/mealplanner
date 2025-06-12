@@ -22,6 +22,7 @@ def load_settings():
         with open(SETTINGS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
+        print("Settings file not found. Using default settings.")
         return {
             "days_to_plan": 5,
             "min_healthy_per_week": 2,
@@ -72,7 +73,7 @@ def print_settings():
         c/ > ♡ <     
 """)
     for key, val in settings.items():
-        print(f"\t{key}: {val}")
+        print(f"\t{key.replace("_", " ").capitalize()}: {val}")
 
 
 ## RECIPES
@@ -100,7 +101,7 @@ def add_recipe():
     print(r""" 
            (\  (\
           („• ֊ •)   <(Let's add a new recipe together!)
-        c/ づ♡  
+        c/ づ   づ
     """)
     name = input("Name of dish: ").strip()
     url = input("URL (optional): ").strip()
@@ -180,7 +181,7 @@ def change_recipe():
     print(r"""
            /)  /)
           ( • ֊ •)     <(I'll help you change your recipe!)
-        c/ づ づ  
+        c/ づ   づ  
  """)
     inp = input("Which recipe would you like to change? ").strip().lower()
     for recipe in recipes:
@@ -474,7 +475,7 @@ def main():
         print(r"""
            (\  /)
           (.>﹏<)   <(It's okay if you wanna get rid of some recipes...
-        c/ づ♡づ               just don't get rid of me!)
+        c/ づ ♡ づ               just don't get rid of me!)
                 """)
         while True:
             inp= input("What recipe would you like to delete? (press Enter to return) ").strip().lower()
@@ -495,7 +496,7 @@ def main():
     elif args.commands == "gen":
         result = generate()
         if result:
-            plan, vegan, vegetarian, healthy, berk, stella, expensive = generate()
+            plan, vegan, vegetarian, healthy, berk, stella, expensive = result
             print(r"""
  ⠀     (\__/)      
        (•ㅅ•)      <(Finally... My training has paid off...)
