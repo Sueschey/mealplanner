@@ -1,13 +1,17 @@
+import argparse
 import json
 import os
-import argparse
 import random
+
+
 """
 To-Do:
 Carb-Variety implementieren
 Meat-Preferences einstellbar machen + filtern beim Erstellen von Plänen
 Carbs mitprinten bei den Tagen, falls vorhanden
+Tags: Quick, Cheap überprüfen
 """
+
 RECIPE_DATA = "recipes.json"
 SETTINGS_FILE = "settings.json"
 
@@ -27,6 +31,8 @@ def load_settings():
             "min_stella_favorite_per_week": 0,
             "max_expensive_per_week": 1,
             "min_carb_variety_per_week": 2,
+            "min_cheap_per_week": 1,
+            "min_quick_per_week": 2,
             "meat_preferences": ["poultry", "beef", "pork", "fish", "other"],
         }
 def save_settings(settings):
@@ -59,10 +65,11 @@ def change_settings():
 
 def print_settings():
     settings = load_settings()
+    print("NOTE: Meat preferences, and the tags quick, cheap and carb variety don't do anything yet!")
     print(r"""
-   (\  /)
-  ( • ω •)   <(These are your current settings!)
-c/ > ♡ <     
+           (\  /)
+          ( • ω •)   <(These are your current settings!)
+        c/ > ♡ <     
 """)
     for key, val in settings.items():
         print(f"\t{key}: {val}")
@@ -126,6 +133,10 @@ def add_recipe():
     tags = []
     if input("Is this meal expensive? y/n: ").strip().lower() == "y":
         tags.append("expensive")
+    if input("Is this meal cheap? y/n: ").strip().lower() == "y":
+        tags.append("cheap")
+    if input("Is this meal quick to make? y/n: ").strip().lower() == "y":
+        tags.append("quick")
     if input("Is this meal healthy? y/n: ").strip().lower() == "y":
         tags.append("healthy")
     if input("Does Berk love this dish? y/n: ").strip().lower() == "y":
@@ -185,7 +196,7 @@ def change_recipe():
                     print("[3] Vegan/Vegetarian/Meat")
                     print("[4] Tags")
                     print("[5] Recommended carbs")
-                    match input("Enter digit"):
+                    match input("Enter digit: "):
                         case "1":
                             new_name = input("New name of dish: ").strip()
                             recipe["name"] = new_name
@@ -236,6 +247,10 @@ def change_recipe():
                             tags = []
                             if input("Is this meal expensive? y/n: ").strip().lower() == "y":
                                 tags.append("expensive")
+                            if input("Is this meal cheap? y/n: ").strip().lower() == "y":
+                                tags.append("cheap")
+                            if input("Is this meal quick to make? y/n: ").strip().lower() == "y":
+                                tags.append("quick")
                             if input("Is this meal healthy? y/n: ").strip().lower() == "y":
                                 tags.append("healthy")
                             if input("Does Berk love this dish? y/n: ").strip().lower() == "y":
@@ -266,6 +281,7 @@ def change_recipe():
                             recipe["carbs_recom"] = carbs_recom
                         case _: print("Invalid input!")
                     if input("Stop changing recipe? (y/n): ").strip().lower() == "y": break
+            return
     print("Couldn't find that recipe...")
 def get_url(name):
     recipes = load_recipes()
@@ -323,7 +339,7 @@ def generate():
                     break
                 if recipe["name"] in temp_plan:
                     continue
-                elif recipe["vegan"] == True:
+                elif recipe["vegan"]:
                     if "expensive" in recipe["tags"] and allowed_expensive <= 0:
                         continue
                     temp_plan.append(recipe["name"])
@@ -341,13 +357,13 @@ def generate():
                     break
                 if recipe["name"] in temp_plan:
                     continue
-                elif recipe["vegetarian"] == True:
+                elif recipe["vegetarian"]:
                     if "expensive" in recipe["tags"] and allowed_expensive <= 0:
                         continue
                     temp_plan.append(recipe["name"])
                     current_vegetarian += 1
 
-                    if recipe["vegan"] == True: current_vegan += 1
+                    if recipe["vegan"]: current_vegan += 1
                     if "berk" in recipe["tags"]: current_berk += 1
                     if "stella" in recipe["tags"]: current_stella += 1
                     if "expensive" in recipe["tags"]: current_expensive += 1
@@ -366,8 +382,8 @@ def generate():
                     temp_plan.append(recipe["name"])
                     current_healthy += 1
 
-                    if recipe["vegan"] == True: current_vegan += 1
-                    if recipe["vegetarian"] == True: current_vegetarian += 1
+                    if recipe["vegan"]: current_vegan += 1
+                    if recipe["vegetarian"]: current_vegetarian += 1
                     if "berk" in recipe["tags"]: current_berk += 1
                     if "stella" in recipe["tags"]: current_stella += 1
                     if "expensive" in recipe["tags"]: current_expensive += 1
@@ -383,8 +399,8 @@ def generate():
                         continue
                     temp_plan.append(recipe["name"])
                     current_berk += 1
-                    if recipe["vegan"] == True: current_vegan += 1
-                    if recipe["vegetarian"] == True: current_vegetarian += 1
+                    if recipe["vegan"]: current_vegan += 1
+                    if recipe["vegetarian"]: current_vegetarian += 1
                     if "healthy" in recipe["tags"]: current_healthy += 1
                     if "stella" in recipe["tags"]: current_stella += 1
                     if "expensive" in recipe["tags"]: current_expensive += 1
@@ -401,8 +417,8 @@ def generate():
                         continue
                     temp_plan.append(recipe["name"])
                     current_stella += 1
-                    if recipe["vegan"] == True: current_vegan += 1
-                    if recipe["vegetarian"] == True: current_vegetarian += 1
+                    if recipe["vegan"]: current_vegan += 1
+                    if recipe["vegetarian"]: current_vegetarian += 1
                     if "healthy" in recipe["tags"]: current_healthy += 1
                     if "berk" in recipe["tags"]: current_berk += 1
                     if "expensive" in recipe["tags"]: current_expensive += 1
@@ -416,8 +432,8 @@ def generate():
                 if "expensive" in recipe["tags"] and allowed_expensive <= 0:
                     continue
                 temp_plan.append(recipe["name"])
-                if recipe["vegan"] == True: current_vegan += 1
-                if recipe["vegetarian"] == True: current_vegetarian += 1
+                if recipe["vegan"]: current_vegan += 1
+                if recipe["vegetarian"]: current_vegetarian += 1
                 if "healthy" in recipe["tags"]: current_healthy += 1
                 if "berk" in recipe["tags"]: current_berk += 1
                 if "stella" in recipe["tags"]: current_stella += 1
@@ -477,8 +493,9 @@ def main():
             change_settings()
 
     elif args.commands == "gen":
-        plan, vegan, vegetarian, healthy, berk, stella, expensive = generate()
-        if plan:
+        result = generate()
+        if result:
+            plan, vegan, vegetarian, healthy, berk, stella, expensive = generate()
             print(r"""
  ⠀     (\__/)      
        (•ㅅ•)      <(Finally... My training has paid off...)

@@ -3,6 +3,8 @@
   "min_healthy_per_week": 2,
   "min_vegetarian_per_week": 1,
   "min_vegan_per_week": 0,
+  "min_cheap_per_week": 1,
+  "min_quick_per_week": 2,
   "min_berk_favorite_per_week": 0,
   "min_stella_favorite_per_week": 0,
   "max_expensive_per_week": 1,
