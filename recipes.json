@@ -126,5 +126,26 @@
       "stella"
     ],
     "carbs_recom": []
+  },
+  {
+    "name": "Babiest Girl",
+    "url": "",
+    "meat_type": "other",
+    "vegan": false,
+    "vegetarian": false,
+    "tags": [
+      "quick",
+      "healthy",
+      "berk"
+    ],
+    "carbs_recom": [
+      "Rice",
+      "Bulgur",
+      "Pasta",
+      "Lentils",
+      "Potatoes",
+      "Mashed potatoes",
+      "Bread"
+    ]
   }
 ]

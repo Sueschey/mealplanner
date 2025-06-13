@@ -73,7 +73,7 @@ def print_settings():
         c/ > ♡ <     
 """)
     for key, val in settings.items():
-        print(f"\t{key.replace("_", " ").capitalize()}: {val}")
+        print( "\t" + key.replace("_", " ").capitalize() + f": {val}")
 
 
 ## RECIPES
