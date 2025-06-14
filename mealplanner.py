@@ -5,11 +5,19 @@ import random
 
 
 """
+After looking at this again, the point of having explicit vegan/veggie bools as opposed to tags, seemed a bit unclear.
+
+Thinking about it, though, it does makes sense for clarity pertaining foods like miso soup (if made using katsuoboshi),
+so it may be best to keep it like that.
+
+Some of the checks are verbose and repetitive... feel free to change stuff, it's not that important.
+
 To-Do:
-Carb-Variety implementieren
-Meat-Preferences einstellbar machen + filtern beim Erstellen von Plänen
-Carbs mitprinten bei den Tagen, falls vorhanden
-Tags: Quick, Cheap überprüfen
+- Carb variety check implementation
+- Meat preference functionality
+- Make all rules be checked (quick, cheap)
+- "Don't include last week's meals"
+- Possibly support regenerating a meal plan, so your memory of last week's meals isn't overwritten by a meal plan you didn't like/use.
 """
 
 RECIPE_DATA = "recipes.json"
